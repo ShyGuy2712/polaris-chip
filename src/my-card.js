@@ -14,11 +14,11 @@ export class MyCard extends LitElement {
 
   constructor() {
     super();
-    this.title = "My card";
-    this.image = "";
+    this.title = "";
+    this.image = null;
     this.cardText = "";
     this.fancy = false;
-    this.detailsButton = "Details";
+    this.detailsButton = "";
     this.detailsButtonLink = "#";
   }
 
@@ -34,61 +34,55 @@ export class MyCard extends LitElement {
         border: 16px solid navy;
       }
 
-      detailsButton {
-        background-color: blue;
-        color: white;
-        border: none;
+      div {
+        padding: 8px;
+        margin: 8px;
+        width: 300px;
         border-radius: 8px;
-        padding: 10px 20px;
-        margin: 0px 108px;
-        font-size: 0.9em;
+        text-align: center;
+        background-color: white;
+        border: 2px solid black;
       }
 
-      detailsButton:focus,
-      detailsButton:hover {
+      h1 {
+        font-size: 24px;
+      }
+
+      img {
+        margin: auto;
+        display: flex;
+        height: 100%;
+        width: 200px;
+      }
+
+      button {
+        margin: auto;
+        display: flex;
+        background-color: blue;
+        color: white;
+      }
+
+      a:focus,
+      a:hover {
         background-color: grey;
       }
 
-      image {
-        width: 200px;
-        height: 100%;
-      }
-
-      title {
-        position: sticky;
-        top: 0;
-        background-color: #eeeeee;
-        text-align: center;
-        font-size: 2em;
-        padding: 8px 8px 16px;
-        margin: 0 -8px;
-      }
-
-      cardText {
-        width: 300px;
-        padding: 0px 8px 8px 8px;
-        color: black;
-        background-color: white;
-        margin: 0px 0px 0px 8px;
-        height: 250px;
-        overflow: auto;
+      a {
+        text-decoration: none;
       }
     `;
   }
 
   render() {
-    return html`<div>${this.title}</div>
-    <div>
-      <img class="image" src="${this.image}"/>
-      <div> 
-        <div class="cardText">
-          <p>${this.cardText}</p>
-          <a href=${this.detailsButtonLink}>
-            <button>${this.detailsButton}</button>
-          </a>
-        </div>
+    return html`
+      <div>
+        <img src=${this.image}>
+        <h1>${this.title}</h1>
+        <p>${this.cardText}</p>  
+        <a href=${this.detailsButtonLink}>
+        <button>${this.detailsButton}</button>
+        </a>
       </div>
-    </div>
     `;
   }
 
@@ -99,6 +93,8 @@ export class MyCard extends LitElement {
       cardTitle: { type: String },
       cardText: { type: String },
       fancy: { type: Boolean, reflect: false },
+      detailsButton: { type: String },
+      detailsButtonLink: { type: String },
     };
   }
 }
