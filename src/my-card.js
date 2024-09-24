@@ -17,9 +17,9 @@ export class MyCard extends LitElement {
     this.title = "";
     this.image = null;
     this.cardText = "";
-    this.fancy = false;
     this.detailsButton = "";
     this.detailsButtonLink = "#";
+    this.fancy = false;
   }
 
   static get styles() {
